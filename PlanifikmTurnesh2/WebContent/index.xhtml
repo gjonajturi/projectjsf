@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>login</title>
+	<h:outputStylesheet library="css" name="layout.css"/>
+</h:head>
+<body>
+
+<div id="header">
+<div id="navbar"> 
+
+  <ul> 
+  	<li><img src="http://localhost:8080/PlanifikmTurnesh2/2c_time.png" style="width:100px;height:100px;"></img>
+  	</li>
+	<li><a href="index.xhtml">Kryefaqja</a></li> 
+	<li><a href="customers.xhtml">Skedulo Turne</a></li> 
+	<li><a href="about.xhtml">Stafi</a></li> 
+	<li><a href="#">Raporte</a></li> 
+  </ul> 
+</div>
+</div>
+
+<div id="nav">
+<div id="navbar2" >
+  <ul> 
+  
+	<li><a href="opsione.xhtml">Opsionet</a></li> 
+	<li><a href="customers.xhtml">Lejet</a></li> 
+	<li><a href="about.xhtml">Pasword</a></li> 
+	<li><a href="#">Te dhenat</a></li> 
+	<li><h:form>
+		<h:commandLink action="#{login.logout}" value="Dil"></h:commandLink>
+	</h:form></li> 
+  </ul>
+  </div>
+</div>
+
+<div id="section">
+<div id="main">
+<h1>Mireserdhet ne Planifikues Turnesh  #{login.user}!</h1>
+  <hr/>  
+    <h2>Lejet per tu aprovuar</h2>
+    <div class="locator"><h2>   Turnet e ardhshme</h2>
+    <p>   --dgdfgdfgdfgdf</p>
+    <p>   --dgdfgdfgdfgdf</p>
+    
+    <p>    dgdfgdfgdfgdf</p>
+    <p>    dgdfgdfgdfgdf</p></div>
+    
+    <h:form>
+    <h:dataTable value="#{newHomePage.allowences}" var="temp2">
+    <h:column>#{temp2.name}-->#{temp2.start}---#{temp2.end} </h:column>
+     <h:column><h:commandLink value="Aprovo"         onclick="if(!confirm('Doni ta aprovoni kte leje?')) return false"	
+      action="#{newHomePage.aprove(temp2.id)}" /> |
+      <h:commandLink value="Refuzo"         onclick="if(!confirm('Doni ta refuzoni kte leje ?')) return false"	
+       action="#{newHomePage.disprove(temp2.id)}" /> </h:column>
+    
+    </h:dataTable>
+    
+    </h:form>
+    
+    <h2>Mesazhet</h2>
+    
+  <h:form>
+		<h:inputText id="message" value="#{msg.msg}" placeholder="Shkruaj mesazhin ketu " ></h:inputText>
+		<p class="submit">
+		<h:commandButton 
+			value="Posto mesazhin" action="#{newHomePage.addMessage(msg)}"></h:commandButton>
+			</p>
+	</h:form>
+    
+    <hr/>
+    <h:form>
+    <h:dataTable value="#{newHomePage.posts}" var="temp">
+    <h:column>#{temp.msg}--->#{temp.name}</h:column>
+        <h:column><h:commandLink value="Fshi"
+        onclick="if(!confirm('Doni ta fshini mesazhin?')) return false"	
+         action="#{newHomePage.deleteMessage(temp.id)}" /></h:column>
+    
+    </h:dataTable>
+    
+    </h:form>
+        <f:metadata><f:event type="preRenderView" listener="#{newHomePage.loadPosts()}"/></f:metadata>
+        <f:metadata><f:event type="preRenderView" listener="#{newHomePage.loadAllowences()}"/></f:metadata>
+    
+    
+</div>
+</div>
+
+
+<div id="footer">
+Copyright © W3Schools.com
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+  <title>Customers</title>
+<h:outputStylesheet library="css" name="layout.css"/>
+        <h:outputScript name="js/datepicker.js"/>
+
+</h:head>
+
+<body>
+        <f:metadata><f:event type="preRenderView" listener="#{schedule.loadEmployees()}"/></f:metadata>
+
+
+<div id="navbar"> 
+    <ul> 
+  	<li><img src="http://localhost:8080/PlanifikmTurnesh2/2c_time.png" style="width:100px;height:100px;"></img>
+  	</li>
+	<li><a href="index.xhtml">Kryefaqja</a></li> 
+	<li><a href="customers.xhtml">Skedulo Turne</a></li> 
+	<li><a href="about.xhtml">Stafi</a></li> 
+	<li><a href="#">Raporte</a></li> 
+  </ul> 
+</div>
+
+<div id="nav">
+<div id="navbar2" >
+  <ul> 
+  
+	<li><a href="skeduloPunonjes.xhtml">Skedulo sipas punonjesve</a></li> 
+	<li><a href="customers.xhtml">Skedulo sipas turneve</a></li> 
+	<li><a href="about.xhtml">Modifiko skedula</a></li> 
+	
+  </ul>
+  </div>
+</div>
+
+<div id="section">
+<div id="main">
+<h2>Ketu vendos skedula sipas punonjesve.</h2>
+  <hr/> 
+  <h:form> 
+    <h4>Zgjidh punonjesin:</h4>
+    <h:selectOneMenu  value="#{employee.id}" >
+    <f:selectItems value="#{schedule.employees}" var="emp" itemValue="#{emp.id}" itemLabel="#{emp.name}" />
+    </h:selectOneMenu>
+    <h4>Zgjidh turnin:</h4>
+    <h:selectOneMenu  value="#{shift.id}" >
+    <f:selectItems value="#{schedule.shifts}" var="shif" itemValue="#{shif.id}" itemLabel="#{shif.start}--#{shif.end}"  />
+    </h:selectOneMenu>
+    <h4>Vendos se ne cfare dite do ta vendosesh kte turn:</h4>
+  
+   Nga data:  <p:calendar value="#{dateBean.startDate}"
+               required="true"
+               id="cal"
+            
+            requiredMessage="Start date required"/>
+            
+            Deri ne daten :  <p:calendar value="#{dateBean.startDate}"
+               required="true"
+               
+            
+            requiredMessage="Start date required"/>
+            <h:commandButton action="#{schedule.assign(emp.id)}"
+			value="Konfirmo"></h:commandButton>
+  </h:form> 
+  
+  
+</div>
+</div>
+
+<div id="footer">
+Copyright © W3Schools.com
+</div>
+
+        <f:metadata><f:event type="preRenderView" listener="#{schedule.loadEmployees()}"/></f:metadata>
+                <f:metadata><f:event type="preRenderView" listener="#{schedule.loadShifts()}"/></f:metadata>
+        
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

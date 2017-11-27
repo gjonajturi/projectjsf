@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+  <title>Customers</title>
+<h:outputStylesheet library="css" name="layout.css"/>
+</h:head>
+
+<body>
+
+<div id="navbar"> 
+    <ul> 
+  	<li><img src="http://localhost:8080/PlanifikmTurnesh2/2c_time.png" style="width:100px;height:100px;"></img>
+  	</li>
+	<li><a href="index.xhtml">Kryefaqja</a></li> 
+	<li><a href="customers.xhtml">Skedulo Turne</a></li> 
+	<li><a href="about.xhtml">Stafi</a></li> 
+	<li><a href="#">Raporte</a></li> 
+  </ul> 
+</div>
+
+<div id="nav">
+<div id="navbar2" >
+  <ul> 
+  
+	<li><a href="skeduloPunonjes.xhtml">Skedulo sipas punonjesve</a></li> 
+	<li><a href="customers.xhtml">Skedulo sipas turneve</a></li> 
+	<li><a href="about.xhtml">Modifiko skedula</a></li> 
+	
+  </ul>
+  </div>
+</div>
+
+<div id="main">
+
+	
+
+        <f:metadata><f:event type="preRenderView" listener="#{schedule.loadEmployees()}"/></f:metadata>
+
+
+</div>
+
+<div id="footer">
+Copyright © W3Schools.com
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
