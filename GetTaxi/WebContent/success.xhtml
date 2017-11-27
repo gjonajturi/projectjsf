@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Success Page</title>
+  <link rel="stylesheet" href="css/style.css" type="text/css"/>
+</h:head>
+<h:body>
+
+<div id="header">
+<h1><img src="images/logo.png" height="150" width="400"/></h1>
+</div>
+<div id="section">
+<div id="div">
+ <h2><img src="images/greentick.png" height ="100" width="100"/></h2> 
+<f:view>
+        <p>Regjistrimi u krye me sukses,#{login.user} </p>
+        <h:form>
+            <p>
+                <h:commandLink value="Shko te logohesh" action="login" />
+            </p>
+        </h:form>
+    </f:view>
+</div>
+</div>
+<div id="footer">
+Copyright © Akademia IkubINFO Grupi 3
+</div>
+</h:body>    
+</html>
